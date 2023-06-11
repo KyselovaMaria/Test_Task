@@ -7,7 +7,6 @@
 ## Project Structure:
 
 ```
-├── LICENSE
 ├───README.md                           <- The top-level README for developers using this project
 |
 ├───eda                                 <- Eda
