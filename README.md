@@ -21,9 +21,6 @@
 |   ├───inference.py                    <- Model inference
 |   ├───train.py                        <- Model training
 |
-|
-├───.gitignore                          <- Ignore files
-|
 └───requirements.txt                    <- The requirements file for reproducing the analysis environment, e.g.
                                            generated with `pip freeze > requirements.txt`
 ```
