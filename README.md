@@ -2,7 +2,7 @@
 
 ## Test task in Data Science [Airbus Ship Detection Challenge](https://www.kaggle.com/c/airbus-ship-detection)
 
-## ![img_ship](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoknUBpPgSqMCwahq_I8rKBAO88uhg4yvIXw&usqp=CAU)
+## ![img_ship](https://storage.googleapis.com/kaggle-media/competitions/Airbus/ships.jpg)
 
 ## Project Structure:
 
