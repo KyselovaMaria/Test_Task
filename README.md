@@ -30,7 +30,7 @@ In my work I have shown that I am familiar with CNN and related topics. For bett
 Accuracy of prediction about 99%.
 
 ## Code for training a model
-# Let's go through the explanation step by step:
+Let's go through the explanation step by step:
 
 1. Data Connection: The code begins by importing necessary libraries and setting up the paths for the training and testing data directories. It also reads the training ship segmentations data from a CSV file.
 
@@ -57,3 +57,26 @@ Accuracy of prediction about 99%.
 12. Training Progress Plot: Finally, a plot is generated to visualize the training progress over epochs. It shows the Dice coefficient values for both training and validation sets.
 
 Overall, this code sets up and trains a U-Net-based model for image segmentation using ship segmentation data. It demonstrates the steps involved in loading and preprocessing the data, defining the model architecture, training the model, and making predictions.
+
+## Code for model inference
+The explanation step by step:
+
+1. Library Imports: The necessary libraries are imported, including TensorFlow, Keras, pandas, numpy, skimage, tqdm, matplotlib, and os.
+
+2. Directory and Model Paths: The paths for the training directory, test directory, and model file are defined using the TRAIN_DIR, TEST_DIR, and MODEL_DIR variables, respectively.
+
+3. Image and Target Dimensions: The code defines the image and target dimensions using IMG_WIDTH, IMG_HEIGHT, TARGET_WIDTH, and TARGET_HEIGHT variables.
+
+4. Constants: Other constants are defined, including the number of epochs, batch size, image shape, and flags for faster development.
+
+5. Dice Coefficient: The dice_coef function is defined, which calculates the Dice coefficient. This function is used as a custom metric during model training and is needed during inference.
+
+6. Model Loading: The pre-trained model is loaded using the load_model function from Keras. The custom_objects parameter is used to pass the dice_coef function to ensure proper loading of the model.
+
+7. Test Image Preparation: The code reads the sample submission file using pandas to get the test image IDs. Then, it initializes an empty array X_test to store the resized test images. It iterates over the test image IDs, reads each image using skimage's imread function, resizes it to the target dimensions using skimage's resize function, and appends it to the X_test array.
+
+8. Model Prediction: The loaded model is used to make predictions on the test images. The model.predict function is called on the X_test array to obtain the predicted masks for each test image. The result is stored in the preds_test array.
+
+9. Visualization: The code sets a threshold value and prepares to visualize the test images alongside their predicted masks. It creates a grid of subplots using matplotlib and iterates over a subset of predicted masks. For each predicted mask, it plots the corresponding test image, overlays the predicted mask on top of the image, and sets the alpha value to make the mask semi-transparent. The resulting visualization is shown without axis labels.
+
+This code essentially loads a pre-trained model, performs inference on test images, and visualizes the predictions alongside the original images.
