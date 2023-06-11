@@ -29,7 +29,36 @@
 In my work I have shown that I am familiar with CNN and related topics. For better result can be used deeper NN and tuning hyperparameters - it takes more time.
 Accuracy of prediction about 99%.
 
+
+## Code that performs exploratory data analysis (EDA) on a dataset
+
+1. Library Imports: The necessary libraries are imported, including numpy, pandas, matplotlib.pyplot, pathlib, tensorflow.keras.utils, skimage.io, seaborn, cv2, and os.
+
+2. Checking Working Directory: The code prints the contents of the directory specified by the path "C:\Users\mariy\Desktop\test" using os.listdir. This is done to verify the current working directory.
+
+3. Loading Data: The code loads the dataset from the CSV file "train_ship_segmentations_v2.csv" using pandas' read_csv function. The dataset is stored in the DataFrame called `df`.
+
+4. Examining Data: The code displays the first few rows of the DataFrame `df` using the `head()` method to get an initial overview of the data.
+
+5. Dataset Information: The code uses the `shape` attribute of the DataFrame to print the number of rows and columns in the dataset, and `info()` method to display detailed information about the DataFrame, including the column names, non-null count, and data types.
+
+6. Visualizing Images: The code visualizes a subset of images from the dataset. It selects a random sample of images with ship annotations (`EncodedPixels` column is not NaN) and displays them in a grid using matplotlib subplots. The images are read using `imread` from skimage.io and shown using `imshow`. Two sets of images are displayed: one with ship annotations and another without ship annotations.
+
+7. Analyzing Ship Existence: The code adds a new column to the DataFrame called 'Exist_ship' that indicates whether a ship is present in an image or not. It uses the `EncodedPixels` column to check for NaN values. The `apply` method is used with a lambda function to convert NaN values to 0 and non-NaN values to 1.
+
+8. Ship Distribution: The code generates a pie chart to visualize the distribution of images with and without ships using the 'Exist_ship' column.
+
+9. Ship Count Distribution: The code calculates the number of ships in each image using the `value_counts()` method on the 'ImageId' column and plots a bar chart to show the distribution of ship counts.
+
+10. Ship Size Distribution: The code calculates the size (number of pixels) of each ship annotation using the 'EncodedPixels' column. It splits the run-length-encoded strings, counts the number of elements in each split, and creates a histogram using seaborn's `histplot` function to visualize the distribution of ship sizes.
+
+11. Image and Mask Visualization: The code defines a function `rle_decode` to decode the run-length-encoded masks and a function `masks_as_color` to draw ships in different colors. It then randomly selects an image from the dataset and displays the original image, the combined mask image, and the overlay of the mask on the original image.
+
+12. Pairwise Image Comparison: The code randomly selects four images from the dataset and displays each image along with its corresponding mask. It calls the `raw_prediction` function to load and preprocess the image and uses the `masks_as_color` function to create the color mask.
+
+
 ## Code for training a model
+
 Let's go through the explanation step by step:
 
 1. Data Connection: The code begins by importing necessary libraries and setting up the paths for the training and testing data directories. It also reads the training ship segmentations data from a CSV file.
@@ -58,7 +87,9 @@ Let's go through the explanation step by step:
 
 Overall, this code sets up and trains a U-Net-based model for image segmentation using ship segmentation data. It demonstrates the steps involved in loading and preprocessing the data, defining the model architecture, training the model, and making predictions.
 
+
 ## Code for model inference
+
 The explanation step by step:
 
 1. Library Imports: The necessary libraries are imported, including TensorFlow, Keras, pandas, numpy, skimage, tqdm, matplotlib, and os.
